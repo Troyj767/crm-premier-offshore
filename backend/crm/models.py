@@ -4,8 +4,8 @@ from django.utils import timezone
 
 
 class Rol(models.Model):
-    nombre_rol  = models.CharField(max_length=50, unique=True)
-    descripcion = models.CharField(max_length=255, blank=True)
+    nombre_rol     = models.CharField(max_length=50, unique=True)
+    descripcion    = models.CharField(max_length=255, blank=True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -26,6 +26,12 @@ class Usuario(models.Model):
     fecha_creacion      = models.DateTimeField(auto_now_add=True)
     fecha_actualizacion = models.DateTimeField(auto_now=True)
 
+    # Requerido por Django REST Framework para verificar permisos
+    is_authenticated = True
+    is_active        = True
+    is_staff         = False
+    is_superuser     = False
+
     class Meta:
         db_table = 'Usuarios'
         verbose_name = 'Usuario'
@@ -38,14 +44,14 @@ class Usuario(models.Model):
 class Contacto(models.Model):
     ESTADO_CHOICES = [('Activo', 'Activo'), ('Inactivo', 'Inactivo')]
 
-    nombre              = models.CharField(max_length=100)
-    empresa             = models.CharField(max_length=100, blank=True)
-    telefono            = models.CharField(max_length=20, blank=True)
-    correo              = models.EmailField(blank=True)
-    pais                = models.CharField(max_length=50, blank=True)
-    idioma_preferido    = models.CharField(max_length=20, blank=True)
-    estado              = models.CharField(max_length=20, choices=ESTADO_CHOICES, default='Activo')
-    id_agente_asignado  = models.ForeignKey(
+    nombre             = models.CharField(max_length=100)
+    empresa            = models.CharField(max_length=100, blank=True)
+    telefono           = models.CharField(max_length=20, blank=True)
+    correo             = models.EmailField(blank=True)
+    pais               = models.CharField(max_length=50, blank=True)
+    idioma_preferido   = models.CharField(max_length=20, blank=True)
+    estado             = models.CharField(max_length=20, choices=ESTADO_CHOICES, default='Activo')
+    id_agente_asignado = models.ForeignKey(
         Usuario, on_delete=models.SET_NULL, null=True, blank=True,
         db_column='id_agente_asignado', related_name='contactos'
     )
@@ -97,11 +103,11 @@ class Oportunidad(models.Model):
     ]
 
     titulo              = models.CharField(max_length=150)
-    id_contacto         = models.ForeignKey(Contacto,  on_delete=models.CASCADE, db_column='id_contacto', related_name='oportunidades')
-    id_usuario          = models.ForeignKey(Usuario,   on_delete=models.PROTECT,  db_column='id_usuario')
+    id_contacto         = models.ForeignKey(Contacto, on_delete=models.CASCADE, db_column='id_contacto', related_name='oportunidades')
+    id_usuario          = models.ForeignKey(Usuario,  on_delete=models.PROTECT,  db_column='id_usuario')
     etapa               = models.CharField(max_length=50, choices=ETAPA_CHOICES, default='Prospecto')
     monto_estimado      = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-    probabilidad_pct    = models.PositiveSmallIntegerField(default=0)  # 0–100
+    probabilidad_pct    = models.PositiveSmallIntegerField(default=0)
     fecha_cierre_est    = models.DateField(null=True, blank=True)
     descripcion         = models.TextField(blank=True)
     fecha_creacion      = models.DateTimeField(auto_now_add=True)
