@@ -3,8 +3,9 @@ import json
 from django.utils import timezone
 from django.db.models import Count, Sum, Q
 from rest_framework import viewsets, filters, status
-from rest_framework.decorators import action
+from rest_framework.decorators import action, api_view
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated, AllowAny
 
 from .models import Rol, Usuario, Contacto, Interaccion, Oportunidad, Tarea, LogAuditoria
 from .serializers import (
@@ -18,7 +19,7 @@ from .serializers import (
 def registrar_log(request, accion, tabla, id_registro=None, anterior=None, nuevo=None):
     """Crea un registro en Log_Auditoria automáticamente."""
     try:
-        usuario_id = request.META.get('HTTP_X_USUARIO_ID')  # Header personalizado
+        usuario_id = request.META.get('HTTP_X_USUARIO_ID')
         if usuario_id:
             LogAuditoria.objects.create(
                 id_usuario_id  = usuario_id,
@@ -30,13 +31,14 @@ def registrar_log(request, accion, tabla, id_registro=None, anterior=None, nuevo
                 ip_origen      = request.META.get('REMOTE_ADDR'),
             )
     except Exception:
-        pass  # El log nunca debe romper la operación principal
+        pass
 
 
 # ─── Roles ────────────────────────────────────────────────────────────────────
 class RolViewSet(viewsets.ModelViewSet):
-    queryset         = Rol.objects.all()
-    serializer_class = RolSerializer
+    queryset           = Rol.objects.all()
+    serializer_class   = RolSerializer
+    permission_classes = [AllowAny]
 
 
 # ─── Usuarios ─────────────────────────────────────────────────────────────────
@@ -104,7 +106,6 @@ class ContactoViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=['get'])
     def historial(self, request, pk=None):
-        """GET /api/contactos/{id}/historial/ — todas las interacciones del contacto."""
         contacto = self.get_object()
         interacciones = contacto.interacciones.select_related('id_usuario').order_by('-fecha_hora')
         serializer = InteraccionSerializer(interacciones, many=True)
@@ -112,7 +113,6 @@ class ContactoViewSet(viewsets.ModelViewSet):
 
     @action(detail=True, methods=['get'])
     def pipeline(self, request, pk=None):
-        """GET /api/contactos/{id}/pipeline/ — oportunidades del contacto."""
         contacto = self.get_object()
         oportunidades = contacto.oportunidades.select_related('id_usuario').all()
         serializer = OportunidadSerializer(oportunidades, many=True)
@@ -163,8 +163,8 @@ class OportunidadViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         qs = super().get_queryset()
-        etapa   = self.request.query_params.get('etapa')
-        agente  = self.request.query_params.get('agente')
+        etapa  = self.request.query_params.get('etapa')
+        agente = self.request.query_params.get('agente')
         if etapa:
             qs = qs.filter(etapa=etapa)
         if agente:
@@ -189,7 +189,6 @@ class OportunidadViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['get'])
     def por_etapa(self, request):
-        """GET /api/oportunidades/por_etapa/ — resumen para el tablero Kanban."""
         data = (Oportunidad.objects
                 .values('etapa')
                 .annotate(total=Count('id'), valor=Sum('monto_estimado'))
@@ -207,8 +206,8 @@ class TareaViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         qs = super().get_queryset()
-        estado   = self.request.query_params.get('estado')
-        agente   = self.request.query_params.get('agente')
+        estado    = self.request.query_params.get('estado')
+        agente    = self.request.query_params.get('agente')
         prioridad = self.request.query_params.get('prioridad')
         if estado:
             qs = qs.filter(estado=estado)
@@ -236,7 +235,6 @@ class TareaViewSet(viewsets.ModelViewSet):
 
     @action(detail=False, methods=['get'])
     def urgentes(self, request):
-        """GET /api/tareas/urgentes/ — tareas vencidas o que vencen en 48 horas."""
         limite = timezone.now() + timezone.timedelta(hours=48)
         qs = self.get_queryset().filter(
             ~Q(estado='Completada'),
@@ -247,12 +245,8 @@ class TareaViewSet(viewsets.ModelViewSet):
 
 
 # ─── Dashboard / KPIs ─────────────────────────────────────────────────────────
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-
 @api_view(['GET'])
 def dashboard_kpis(request):
-    """GET /api/dashboard/ — KPIs principales para el panel de control (RF-11)."""
     hoy = timezone.now()
 
     contactos_activos  = Contacto.objects.filter(estado='Activo').count()
@@ -274,19 +268,18 @@ def dashboard_kpis(request):
     tasa_conversion = round((oportunidades_ganadas / oportunidades_total * 100), 1) if oportunidades_total else 0
 
     return Response({
-        'contactos_activos':   contactos_activos,
+        'contactos_activos':    contactos_activos,
         'contactos_nuevos_mes': contactos_nuevos,
-        'tareas_pendientes':   tareas_pendientes,
-        'tareas_vencidas':     tareas_vencidas,
-        'interacciones_mes':   interacciones_mes,
-        'tasa_conversion_pct': tasa_conversion,
-        'pipeline_por_etapa':  pipeline,
+        'tareas_pendientes':    tareas_pendientes,
+        'tareas_vencidas':      tareas_vencidas,
+        'interacciones_mes':    interacciones_mes,
+        'tasa_conversion_pct':  tasa_conversion,
+        'pipeline_por_etapa':   pipeline,
     })
 
 
 # ─── Auditoría ────────────────────────────────────────────────────────────────
 class LogAuditoriaViewSet(viewsets.ReadOnlyModelViewSet):
-    """Solo lectura — nadie puede modificar los logs."""
     queryset = LogAuditoria.objects.select_related('id_usuario').all()
     serializer_class = LogAuditoriaSerializer
     filter_backends  = [filters.OrderingFilter]
