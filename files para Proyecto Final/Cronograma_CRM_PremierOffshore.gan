@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="CRM - Premier Offshore Solutions" company="UAPA - Desarrollo de Proyectos con Software Libre" webLink="" view-date="2026-03-02" view-index="0" gantt-divider-location="374" resource-divider-location="322" version="3.3.3309" locale="es">
+    <description>Proyecto: Sistema de Gestion de Clientes (CRM) para Premier Offshore Solutions. Asignatura: Desarrollo de Proyectos con Software Libre. Universidad Abierta para Adultos (UAPA).</description>
+    <view zooming-state="default:7" id="gantt-chart">
+        <field id="tpd3" name="Name" width="200" order="0"/>
+        <field id="tpd4" name="Begin date" width="75" order="1"/>
+        <field id="tpd5" name="End date" width="75" order="2"/>
+        <field id="tpd6" name="Duration" width="50" order="3"/>
+        <field id="tpd7" name="Completion" width="50" order="4"/>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="Name" width="210" order="0"/>
+        <field id="1" name="Default role" width="86" order="1"/>
+    </view>
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type"       type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority"   type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info"       type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name"       type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate"  type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate"    type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration"   type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+
+        <!-- ═══ FASE 1 ═══ -->
+        <task id="1" uid="54cc914bd2954007afe10d3777340308" name="FASE 1: Levantamiento de Requerimientos" color="#1B6B3A" meeting="false" start="2026-03-02" duration="14" complete="100" cost-manual-value="0.0" cost-calculated="false" expand="true">
+            <depend id="10" type="2" difference="0" hardness="Strong"/>
+            <task id="2"  uid="143f5c1253b6485caa1d3bac99536dd2" name="Visita a Premier Offshore Solutions"            color="#2E8B57" meeting="false" start="2026-03-02" duration="2"  complete="100" cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="3"  uid="4005ff40e761477c98bfa95493a0bc0f" name="Entrevistas con personal operativo y gerencial" color="#2E8B57" meeting="false" start="2026-03-04" duration="3"  complete="100" cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="4"  uid="bee83fa294854b3bb1bbce799111a33f" name="Identificacion de necesidades y procesos"        color="#2E8B57" meeting="false" start="2026-03-07" duration="3"  complete="100" cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="5"  uid="ef1c874dca4b4fb4990006cdd77c8dfe" name="Documentacion requerimientos funcionales"       color="#2E8B57" meeting="false" start="2026-03-10" duration="3"  complete="100" cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="6"  uid="d1022b8c217e4e99bd78735706a4c517" name="Documentacion requerimientos no funcionales"    color="#2E8B57" meeting="false" start="2026-03-13" duration="2"  complete="100" cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="7"  uid="570497b2b6c341dcbc80d345008b5cd0" name="[HITO] Entrega: Documento de Requerimientos"   color="#FF8C00" meeting="true"  start="2026-03-16" duration="0"  complete="100" cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+        </task>
+
+        <!-- ═══ FASE 2 ═══ -->
+        <task id="10" uid="c3391f640cef40ce8b134f5e9f3e08bf" name="FASE 2: Analisis y Diseno del Sistema" color="#1B6B3A" meeting="false" start="2026-03-16" duration="16" complete="40" cost-manual-value="0.0" cost-calculated="false" expand="true">
+            <depend id="20" type="2" difference="0" hardness="Strong"/>
+            <task id="11" uid="bd6f9f4e60c24a02aaa349a3e3412a6d" name="Definicion de arquitectura del sistema"        color="#2E8B57" meeting="false" start="2026-03-16" duration="3"  complete="70" cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="12" uid="19bb458c7d5d4d1882df2a3ff601018a" name="Diseno del modelo de base de datos (ER)"        color="#2E8B57" meeting="false" start="2026-03-19" duration="4"  complete="50" cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="13" uid="3b80a571eaa94f52b79a51cd5432fe55" name="Diseno de casos de uso y diagramas UML"         color="#2E8B57" meeting="false" start="2026-03-23" duration="4"  complete="20" cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="14" uid="dee47f01fb2147aa9eb75f8c0d1d07f4" name="Prototipo de interfaz (wireframes)"             color="#2E8B57" meeting="false" start="2026-03-27" duration="4"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="15" uid="4229925e9fc64c969d24884a7119b420" name="Revision y aprobacion del diseno"               color="#2E8B57" meeting="false" start="2026-03-31" duration="1"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="16" uid="9d2904f4f7ca47c7978eb5849278ca10" name="[HITO] Entrega: Documento de Diseno"           color="#FF8C00" meeting="true"  start="2026-04-01" duration="0"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+        </task>
+
+        <!-- ═══ FASE 3 ═══ -->
+        <task id="20" uid="366a6b7a9d654b4f95c0df10fd1e7c6f" name="FASE 3: Configuracion del Entorno de Desarrollo" color="#1B6B3A" meeting="false" start="2026-04-01" duration="7" complete="0" cost-manual-value="0.0" cost-calculated="false" expand="true">
+            <depend id="30" type="2" difference="0" hardness="Strong"/>
+            <task id="21" uid="a8fe9043ab984295a069624f29eb5a11" name="Instalacion de herramientas (Docker, Git, IDE)" color="#2E8B57" meeting="false" start="2026-04-01" duration="2"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="22" uid="a3060aa5a57d45b0af18d674fa905458" name="Configuracion repositorio Git (GitLab CE)"      color="#2E8B57" meeting="false" start="2026-04-03" duration="2"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="23" uid="1e66cdacbcf04d709fe9266e8df1509b" name="Configuracion entorno Django + PostgreSQL"       color="#2E8B57" meeting="false" start="2026-04-05" duration="2"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="24" uid="3b1923a8403f4900b58f3df55af15a15" name="Configuracion del proyecto Vue.js"               color="#2E8B57" meeting="false" start="2026-04-07" duration="1"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+        </task>
+
+        <!-- ═══ FASE 4A ═══ -->
+        <task id="30" uid="51d90ab147654adeb778a54e12a46840" name="FASE 4A: Desarrollo Sprint 1 - Modulos Base" color="#1B6B3A" meeting="false" start="2026-04-08" duration="14" complete="0" cost-manual-value="0.0" cost-calculated="false" expand="true">
+            <depend id="40" type="2" difference="0" hardness="Strong"/>
+            <task id="31" uid="2b123c0663784fdf82b10ced36d619f7" name="Modulo autenticacion y gestion de usuarios"     color="#2E8B57" meeting="false" start="2026-04-08" duration="4"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="32" uid="b3442144f0fc469aa5768e25f7eec011" name="Modulo de gestion de contactos (CRUD)"          color="#2E8B57" meeting="false" start="2026-04-13" duration="5"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="33" uid="229a7427eb3e43e990ccb9cc101ab5d8" name="Modulo de registro de interacciones"            color="#2E8B57" meeting="false" start="2026-04-20" duration="4"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="34" uid="6bd37e4b3c9a4de78eff3294e61e3236" name="Pruebas unitarias Sprint 1"                     color="#8B0000" meeting="false" start="2026-04-24" duration="1"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="35" uid="325a71eb2d334d288b327c650707c818" name="[HITO] Demo Sprint 1 al cliente"                color="#FF8C00" meeting="true"  start="2026-04-27" duration="0"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+        </task>
+
+        <!-- ═══ FASE 4B ═══ -->
+        <task id="40" uid="ae9faf790dc345c89c8b510f64d4c2fc" name="FASE 4B: Desarrollo Sprint 2 - Modulos Avanzados" color="#1B6B3A" meeting="false" start="2026-04-27" duration="14" complete="0" cost-manual-value="0.0" cost-calculated="false" expand="true">
+            <depend id="50" type="2" difference="0" hardness="Strong"/>
+            <task id="41" uid="50b23332bbe94e27845f97def6b8db65" name="Modulo de pipeline de ventas (Kanban)"          color="#2E8B57" meeting="false" start="2026-04-27" duration="5"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="42" uid="816d86ea79104271b1e8ca87f556d077" name="Modulo gestion de tareas y notificaciones"      color="#2E8B57" meeting="false" start="2026-05-04" duration="4"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="43" uid="dc23534875d948e9a0b37a09a4bbadc9" name="Dashboard de KPIs (graficas y metricas)"        color="#2E8B57" meeting="false" start="2026-05-08" duration="4"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="44" uid="a7931e34a47f40e393bd69c6e6ee07d1" name="Pruebas unitarias Sprint 2"                     color="#8B0000" meeting="false" start="2026-05-12" duration="1"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="45" uid="80aa27ead3704762b2c512b5afd6ec41" name="[HITO] Demo Sprint 2 al cliente"                color="#FF8C00" meeting="true"  start="2026-05-13" duration="0"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+        </task>
+
+        <!-- ═══ FASE 5 ═══ -->
+        <task id="50" uid="48dc46f36a74467482097880f9b6b8e4" name="FASE 5: Pruebas e Integracion" color="#1B6B3A" meeting="false" start="2026-05-13" duration="10" complete="0" cost-manual-value="0.0" cost-calculated="false" expand="true">
+            <depend id="60" type="2" difference="0" hardness="Strong"/>
+            <task id="51" uid="1627837a8f5343a2a921f146dfd510ad" name="Pruebas de integracion del sistema"             color="#8B0000" meeting="false" start="2026-05-13" duration="3"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="52" uid="bc0851844cf149cca16c738123dcf5c0" name="Pruebas de rendimiento y seguridad"             color="#8B0000" meeting="false" start="2026-05-18" duration="2"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="53" uid="cf8a3166d0cb4ef8adefefd132bf4a82" name="Pruebas de aceptacion con usuarios de POS"     color="#8B0000" meeting="false" start="2026-05-20" duration="3"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="54" uid="9585c05616074fd5823fcc703b8761a1" name="Correccion de errores detectados"               color="#8B0000" meeting="false" start="2026-05-25" duration="2"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+        </task>
+
+        <!-- ═══ FASE 6 ═══ -->
+        <task id="60" uid="d24134419c1b45629087a8b94e0e0d61" name="FASE 6: Despliegue y Entrega Final" color="#1B6B3A" meeting="false" start="2026-05-27" duration="9" complete="0" cost-manual-value="0.0" cost-calculated="false" expand="true">
+            <task id="61" uid="bec62697b69747beac5d7a2f861ecbf7" name="Configuracion del servidor de produccion"       color="#2E8B57" meeting="false" start="2026-05-27" duration="2"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="62" uid="d4e043d10c8e4bf6bd09acf2a03b80c4" name="Despliegue con Docker en servidor de POS"      color="#2E8B57" meeting="false" start="2026-05-29" duration="2"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="63" uid="c36612c957ec4200b6b57989fae254f6" name="Capacitacion a usuarios finales"                color="#2E8B57" meeting="false" start="2026-06-01" duration="2"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="64" uid="a2e3c0587dc64d38ad70adb3d0f3ef8a" name="Elaboracion de documentacion tecnica final"    color="#2E8B57" meeting="false" start="2026-06-03" duration="2"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+            <task id="65" uid="af10dd2f9a4746cda1752d6333cabe82" name="[HITO] Entrega final del proyecto al docente"  color="#FF8C00" meeting="true"  start="2026-06-05" duration="0"  complete="0"  cost-manual-value="0.0" cost-calculated="false" expand="true"/>
+        </task>
+    </tasks>
+
+    <resources>
+        <resource id="0" name="Erasmo (Desarrollador Full-Stack)" function="Default:1" contacts="" phone=""/>
+        <resource id="1" name="Docente / Asesor"                   function="Default:2" contacts="" phone=""/>
+        <resource id="2" name="Personal Premier Offshore"          function="Default:0" contacts="" phone=""/>
+    </resources>
+
+    <allocations>
+        <allocation task-id="2"  resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="2"  resource-id="2" function="Default:0" responsible="false" load="50.0"/>
+        <allocation task-id="3"  resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="3"  resource-id="2" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="4"  resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="5"  resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="6"  resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="11" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="12" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="13" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="14" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="15" resource-id="1" function="Default:2" responsible="true"  load="100.0"/>
+        <allocation task-id="21" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="22" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="23" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="24" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="31" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="32" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="33" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="41" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="42" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="43" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="51" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="52" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="53" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="53" resource-id="2" function="Default:0" responsible="false" load="100.0"/>
+        <allocation task-id="54" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="61" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="62" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="63" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+        <allocation task-id="64" resource-id="0" function="Default:1" responsible="true"  load="100.0"/>
+    </allocations>
+
+    <roles roleset-name="Default"/>
+    <roles>
+        <role id="0" name="Cliente"/>
+        <role id="1" name="Desarrollador"/>
+        <role id="2" name="Docente"/>
+    </roles>
+</project>
