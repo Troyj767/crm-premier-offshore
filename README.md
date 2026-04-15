@@ -173,7 +173,14 @@ mysql -u crm_user -p CRM_PremierOffshore < database/CRM_PremierOffshore_DB.sql
 
 | Nombre | Rol | Universidad |
 |---|---|---|
-| Erasmo | Desarrollador Full-Stack | UAPA |
+| Erasmo | Full-Stack + Front-End | UAPA |
+| Martin | Analista de Requerimientos | UAPA |
+| Efren | Diseño de Base De Datos | UAPA |
+| Gilberto | Back-End | UAPA |
+| Rosanny | Docker + PowerShell | UAPA |
+| Martin | Pruebas Del Sistema | UAPA |
+| Raymundo | Documentación | UAPA |
+
 
 **Empresa cliente:** Premier Offshore Solutions — Santiago de los Caballeros, República Dominicana.
 
